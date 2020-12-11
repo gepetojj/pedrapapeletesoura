@@ -1,5 +1,5 @@
 {
-  "name": "pedrapapeletesouranext",
+  "name": "pedrapapeletesoura",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,6 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "firebase": "^8.1.2",
+    "firebase-admin": "^9.4.1",
+    "fs": "^0.0.1-security",
     "next": "10.0.3",
     "react": "17.0.1",
     "react-dom": "17.0.1"

@@ -1,0 +1,14 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw;
+    min-height: 90vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}

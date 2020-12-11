@@ -1,0 +1,68 @@
+.controller,
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title,
+.description {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+}
+
+.heroImage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.image {
+    width: 70%;
+}
+
+.right,
+.formTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right {
+    margin-top: 1rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.otherOptions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 600px) {
+    .image {
+        width: 380px;
+    }
+}
+
+@media (min-width: 890px) {
+    .controller {
+        flex-direction: row;
+    }
+    .right {
+        margin-top: 0rem;
+        margin-left: 4rem;
+    }
+}

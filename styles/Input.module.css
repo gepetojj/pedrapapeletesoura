@@ -1,0 +1,78 @@
+.input,
+.errorInput {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 0rem;
+    position: relative;
+    width: 100%;
+}
+
+.underlined {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.textField {
+    border: none;
+    border-bottom: 0.1rem solid;
+    border-radius: 4px;
+    width: 100%;
+    height: 2rem;
+    font-size: 100%;
+    line-height: 147.6%;
+    background-color: transparent;
+    padding: 0.8rem 0.5rem 0.5rem 0.5rem;
+    transition: 0.2s;
+}
+
+.textField:focus {
+    outline: none;
+}
+
+.input .textField {
+    border-bottom-color: var(--input-border-color);
+    color: var(--font-color-light);
+}
+
+.input .textField:focus {
+    border-bottom-color: var(--font-color-purple);
+}
+
+.label {
+    position: absolute;
+    font-size: 90%;
+    top: 0.2rem;
+    left: 0.6rem;
+    line-height: 147.6%;
+    transition: 0.2s;
+}
+
+.labelFocused {
+    position: absolute;
+    font-size: 70%;
+    top: -0.4rem;
+    left: 0.6rem;
+    line-height: 147.6%;
+    transition: 0.2s;
+}
+
+.helper {
+    font-size: 80%;
+    padding: 0.2rem 0.5rem 0rem 0.5rem;
+    transition: 0.2s;
+}
+
+.errorInput .textField {
+    border-bottom-color: var(--input-border-color-error);
+    color: var(--font-color-light);
+}
+
+.errorInput .label,
+.errorInput .labelFocused {
+    color: var(--font-color-error);
+}
+
+.errorInput .helper {
+    color: var(--font-color-error);
+}

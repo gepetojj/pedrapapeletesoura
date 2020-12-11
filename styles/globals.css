@@ -1,16 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    font-size: 20px;
+    background-color: var(--background-color);
+    color: var(--font-color);
+}
+
+h1 {
+    margin: 0;
+    transition: 0.2s;
+}
+
+h2 {
+    margin: 0;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+h3 {
+    margin: 0;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-weight: 400;
+    color: var(--font-color-light);
+    transition: 0.2s;
+}
+p {
+    margin: 0;
+    color: var(--font-color-light);
+    transition: 0.2s;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    text-decoration: none;
+    color: var(--font-color-purple);
+    transition: 0.2s;
 }
 
-* {
-  box-sizing: border-box;
+span {
+    color: var(--font-color-light);
+    transition: 0.2s;
+}
+
+.dark-theme {
+    --background-color: #121214;
+    --header-color: #28282c;
+    --button-color: #514fcd;
+    --button-color-hover: #4443b3;
+    --font-color: #ffffff;
+    --font-color-light: #e4e2e2;
+    --font-color-purple: #706fda;
+    --font-color-error: #ca3636;
+    --input-border-color: #28282c;
+    --input-border-color-error: #ca3636;
+    --alert-color: #1d1d20;
+}
+
+.light-theme {
+    --background-color: #f7f7f8;
+    --header-color: #ececec;
+    --button-color: #645cff;
+    --button-color-hover: #564eee;
+    --font-color: #0e0e10;
+    --font-color-light: #2b2b2b;
+    --font-color-purple: #5b59c5;
+    --font-color-error: #ca3636;
+    --input-border-color: #bbbbbb;
+    --input-border-color-error: #ca3636;
+    --alert-color: #e4e4e4;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    max-width: 100vw;
+    padding: 0 1rem;
+    margin: 1rem 0rem;
 }
