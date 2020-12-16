@@ -51,6 +51,15 @@
     margin-top: 0.5rem;
 }
 
+.close {
+    width: 2.5%;
+    color: var(--font-color);
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
 @media (min-width: 600px) {
     .image {
         width: 380px;

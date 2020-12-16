@@ -91,6 +91,5 @@ span {
     align-items: center;
     min-height: 100vh;
     max-width: 100vw;
-    padding: 0 1rem;
-    margin: 1rem 0rem;
+    padding: 1rem;
 }

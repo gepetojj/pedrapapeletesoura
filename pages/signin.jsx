@@ -33,9 +33,6 @@ export default function SignIn() {
         auth().useDeviceLanguage();
         auth()
             .signInWithPopup(googleProvider)
-            .then((result) => {
-                console.log(result);
-            })
             .catch((err) => {
                 setAlert(true);
                 setAlertProps(["Erro ao tentar fazer login.", err.message]);
@@ -47,9 +44,6 @@ export default function SignIn() {
         auth().useDeviceLanguage();
         auth()
             .signInWithPopup(twitterProvider)
-            .then((result) => {
-                console.log(result);
-            })
             .catch((err) => {
                 setAlert(true);
                 setAlertProps(["Erro ao tentar fazer login.", err.message]);
@@ -88,7 +82,12 @@ export default function SignIn() {
                 <title>Pedra, papel e tesoura</title>
             </Head>
             <Alert visible={alert} title={alertProps[0]} desc={alertProps[1]}>
-                <p onClick={toggleAlert}>x</p>
+                <img
+                    className={styles.close}
+                    src="/close.svg"
+                    alt="Icone de fechar"
+                    onClick={toggleAlert}
+                />
             </Alert>
             <div className="container">
                 <div className={styles.controller}>

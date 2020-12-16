@@ -3,7 +3,6 @@ class Validator {
         this.value = value;
         this.type = type;
         this.emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        this.usernFormat = /^[a-zA-Z0-9]+$/;
         this.passwFormat = /^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{8,32}$/;
     }
 
@@ -46,11 +45,6 @@ class Validator {
                         error: true,
                         message:
                             "Seu usuário não pode ter mais que 16 caracteres.",
-                    };
-                } else if (!this.value.match(this.usernFormat)) {
-                    return {
-                        error: true,
-                        message: "Seu usuário só pode ter letras e números.",
                     };
                 } else {
                     return { error: false, message: "" };
