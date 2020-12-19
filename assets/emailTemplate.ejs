@@ -1,0 +1,175 @@
+<style type="text/css" style="box-sizing: border-box">
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #ffffff;
+        background-color: #121214;
+    }
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #28282c;
+        padding: 1rem;
+        width: 100%;
+        height: 100%;
+    }
+    .title {
+        font-weight: 500;
+        font-size: 1.2rem;
+        margin: 0;
+        text-decoration: none;
+        color: #ffffff;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background-color: #121214;
+        padding: 1rem;
+    }
+    .greeting {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .greetingTitle {
+        font-size: 1.3rem;
+    }
+    .link {
+        color: #706fda;
+    }
+    footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50%;
+    }
+    .copyright {
+        font-weight: 500;
+        font-size: 1rem;
+        margin: 0;
+        text-decoration: none;
+        color: #ffffff;
+    }
+</style>
+<header
+    style="
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #28282c;
+        padding: 1rem;
+        width: 100%;
+        height: 100%;
+    "
+>
+    <div style="box-sizing: border-box">
+        <a
+            href="https://pedrapapeletesoura.netlify.app/"
+            class="title"
+            style="
+                box-sizing: border-box;
+                font-weight: 500;
+                font-size: 1.2rem;
+                margin: 0;
+                text-decoration: none;
+                color: #ffffff;
+            "
+            >Pedra, papel e tesoura
+        </a>
+    </div>
+</header>
+<main
+    style="
+        box-sizing: border-box;
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+        background-color: #121214;
+        padding: 1rem;
+    "
+>
+    <div
+        class="greeting"
+        style="
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        "
+    >
+        <p
+            class="greetingTitle"
+            style="box-sizing: border-box; font-size: 1.3rem"
+        >
+            Olá <strong style="box-sizing: border-box"><%= username %></strong>!
+        </p>
+        <p style="box-sizing: border-box">
+            Seu email foi inserido para a criação de uma conta no Pedra, papel e
+            tesoura. Caso você não tenha feito este pedido, apenas
+            <strong style="box-sizing: border-box">ignore</strong> esta
+            mensagem.
+        </p>
+    </div>
+    <div style="box-sizing: border-box">
+        <p style="box-sizing: border-box">
+            Porém, caso você tenha feito este pedido,
+            <a
+                href="<%= link %>"
+                class="link"
+                style="box-sizing: border-box; color: #706fda"
+                >clique aqui</a
+            >
+            para confirmar a criação da sua conta com este email.
+        </p>
+    </div>
+    <footer
+        style="
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        "
+    >
+        <div style="box-sizing: border-box">
+            <a
+                href="https://pedrapapeletesoura.netlify.app/"
+                class="copyright"
+                style="
+                    box-sizing: border-box;
+                    font-weight: 500;
+                    font-size: 1rem;
+                    margin: 0;
+                    text-decoration: none;
+                "
+                >Pedra, papel e tesoura ©️ </a
+            ><a
+                href="https://github.com/gepetojj/"
+                class="copyright"
+                style="
+                    box-sizing: border-box;
+                    font-weight: 500;
+                    font-size: 1rem;
+                    margin: 0;
+                    text-decoration: none;
+                "
+                >Gepetojj
+            </a>
+        </div>
+    </footer>
+</main>

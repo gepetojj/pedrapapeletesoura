@@ -84,19 +84,28 @@ export default function SignUp() {
             setPass1Errors([true, "As senhas devem ser iguais."]);
             setPass2Errors([true, "As senhas devem ser iguais."]);
         } else {
-            try {
-                const response = await axios.post(API("/signup"), {
+            await axios
+                .post(API("/signup"), {
                     username: userRef.current.value,
                     email: emailRef.current.value,
                     password: passRef.current.value,
                     passwordConfirm: passConfirmRef.current.value,
+                })
+                .then((response) => {
+                    console.log(response);
+                    setAlert(true);
+                    setAlertProps([
+                        "Operação concluída.",
+                        response.data.message,
+                    ]);
+                })
+                .catch((err) => {
+                    setAlert(true);
+                    setAlertProps([
+                        "Erro ao tentar criar sua conta.",
+                        err.response.data.message,
+                    ]);
                 });
-                console.log(response);
-            } catch (err) {
-                console.error(new Error(err));
-                setAlert(true);
-                setAlertProps(["Erro ao tentar criar sua conta.", err.message]);
-            }
         }
     };
 

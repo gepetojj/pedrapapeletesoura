@@ -68,6 +68,7 @@ span {
     --input-border-color: #28282c;
     --input-border-color-error: #ca3636;
     --alert-color: #1d1d20;
+    --selection-color: #a6a4ff;
 }
 
 .light-theme {
@@ -82,6 +83,7 @@ span {
     --input-border-color: #bbbbbb;
     --input-border-color-error: #ca3636;
     --alert-color: #e4e4e4;
+    --selection-color: #a6a4ff;
 }
 
 .container {
@@ -92,4 +94,8 @@ span {
     min-height: 100vh;
     max-width: 100vw;
     padding: 1rem;
+}
+
+::selection {
+    background-color: var(--selection-color);
 }
