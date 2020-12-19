@@ -19,7 +19,15 @@ export default function SignIn() {
     useEffect(() => {
         auth().onAuthStateChanged((user) => {
             if (user) {
-                Router.push("/menu");
+                if (user.emailVerified === true) {
+                    Router.push("/menu");
+                } else {
+                    setAlert(true);
+                    setAlertProps([
+                        "Erro ao tentar fazer login.",
+                        "Verifique seu email antes de entrar.",
+                    ]);
+                }
             }
         });
     }, []);
@@ -67,7 +75,13 @@ export default function SignIn() {
                     passRef.current.value
                 )
                 .then((result) => {
-                    console.log(result);
+                    if (result.email_verified === false) {
+                        setAlert(true);
+                        setAlertProps([
+                            "Erro ao tentar fazer login.",
+                            "Verifique seu email antes de entrar.",
+                        ]);
+                    }
                 })
                 .catch((err) => {
                     setAlert(true);
