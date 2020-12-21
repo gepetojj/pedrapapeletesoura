@@ -19,14 +19,16 @@ export default function SignIn() {
     useEffect(() => {
         auth().onAuthStateChanged((user) => {
             if (user) {
-                if (user.emailVerified === true) {
+                if (user.emailVerified && user.emailVerified === true) {
                     Router.push("/menu");
-                } else {
+                } else if (user.emailVerified && user.emailVerified === false) {
                     setAlert(true);
                     setAlertProps([
                         "Erro ao tentar fazer login.",
                         "Verifique seu email antes de entrar.",
                     ]);
+                } else if (!user.emailVerified) {
+                    Router.push("/menu");
                 }
             }
         });

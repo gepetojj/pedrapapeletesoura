@@ -25,7 +25,9 @@ export default function SignUp() {
     useEffect(() => {
         auth().onAuthStateChanged((user) => {
             if (user) {
-                if (user.emailVerified === true) {
+                if (user.emailVerified && user.emailVerified === true) {
+                    Router.push("/menu");
+                } else if (!user.emailVerified) {
                     Router.push("/menu");
                 }
             }

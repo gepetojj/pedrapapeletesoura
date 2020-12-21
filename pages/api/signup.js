@@ -65,7 +65,7 @@ export default (req, res) => {
                 firebase
                     .auth()
                     .generateEmailVerificationLink(email)
-                    .then(async (link) => {
+                    .then((link) => {
                         const actionID = uuid();
                         firebase
                             .firestore()
