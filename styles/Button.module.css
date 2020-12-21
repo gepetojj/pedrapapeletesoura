@@ -21,6 +21,8 @@
 
 .button:disabled {
     cursor: not-allowed;
+    background-color: var(--button-color-disabled);
+    color: var(--font-color-light);
 }
 
 .iconArea {

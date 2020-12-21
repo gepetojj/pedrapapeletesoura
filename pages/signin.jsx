@@ -15,6 +15,7 @@ export default function SignIn() {
     const [passwErrors, setPasswErrors] = useState([false, ""]);
     const [alert, setAlert] = useState(false);
     const [alertProps, setAlertProps] = useState(["", ""]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         auth().onAuthStateChanged((user) => {
@@ -39,6 +40,7 @@ export default function SignIn() {
     };
 
     const loginWithGoogle = () => {
+        setLoading(true);
         const googleProvider = new auth.GoogleAuthProvider();
         auth().useDeviceLanguage();
         auth()
@@ -46,10 +48,12 @@ export default function SignIn() {
             .catch((err) => {
                 setAlert(true);
                 setAlertProps(["Erro ao tentar fazer login.", err.message]);
+                setLoading(false);
             });
     };
 
     const loginWithTwitter = () => {
+        setLoading(true);
         const twitterProvider = new auth.TwitterAuthProvider();
         auth().useDeviceLanguage();
         auth()
@@ -57,17 +61,20 @@ export default function SignIn() {
             .catch((err) => {
                 setAlert(true);
                 setAlertProps(["Erro ao tentar fazer login.", err.message]);
+                setLoading(false);
             });
     };
 
     const loginWithEmail = (event) => {
         event.preventDefault();
+        setLoading(true);
         let email = new Validator(emailRef.current.value, "email").validate();
         let passw = new Validator(passRef.current.value, "pass").validate();
 
         if (email.error === true || passw.error === true) {
             setEmailErrors([email.error, email.message]);
             setPasswErrors([passw.error, passw.message]);
+            setLoading(false);
         } else {
             setEmailErrors([false, ""]);
             setPasswErrors([false, ""]);
@@ -83,11 +90,13 @@ export default function SignIn() {
                             "Erro ao tentar fazer login.",
                             "Verifique seu email antes de entrar.",
                         ]);
+                        setLoading(false);
                     }
                 })
                 .catch((err) => {
                     setAlert(true);
                     setAlertProps(["Erro ao tentar fazer login.", err.message]);
+                    setLoading(false);
                 });
         }
     };
@@ -134,6 +143,7 @@ export default function SignIn() {
                                 helperText={emailErrors[1]}
                                 error={emailErrors[0]}
                                 reference={emailRef}
+                                disabled={loading}
                             />
                             <Input
                                 type="password"
@@ -142,8 +152,13 @@ export default function SignIn() {
                                 helperText={passwErrors[1]}
                                 error={passwErrors[0]}
                                 reference={passRef}
+                                disabled={loading}
                             />
-                            <Button type="submit" value="Entrar" />
+                            <Button
+                                type="submit"
+                                value="Entrar"
+                                disabled={loading}
+                            />
                         </form>
                         <div className={styles.otherOptions}>
                             <Button
@@ -151,12 +166,14 @@ export default function SignIn() {
                                 value="Entrar com Google"
                                 icon="/google.png"
                                 onClick={loginWithGoogle}
+                                disabled={loading}
                             />
                             <Button
                                 type="button"
                                 value="Entrar com Twitter"
                                 icon="/twitter.png"
                                 onClick={loginWithTwitter}
+                                disabled={loading}
                             />
                         </div>
                     </div>

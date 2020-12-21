@@ -61,6 +61,7 @@ span {
     --header-color: #28282c;
     --button-color: #514fcd;
     --button-color-hover: #4443b3;
+    --button-color-disabled: #333285;
     --font-color: #ffffff;
     --font-color-light: #e4e2e2;
     --font-color-purple: #706fda;
@@ -69,6 +70,7 @@ span {
     --input-border-color-error: #ca3636;
     --alert-color: #1d1d20;
     --selection-color: #a6a4ff;
+    --user-color: #1e1e20;
 }
 
 .light-theme {
@@ -76,6 +78,7 @@ span {
     --header-color: #ececec;
     --button-color: #645cff;
     --button-color-hover: #564eee;
+    --button-color-disabled: #4a45a7;
     --font-color: #0e0e10;
     --font-color-light: #2b2b2b;
     --font-color-purple: #5b59c5;
@@ -84,6 +87,7 @@ span {
     --input-border-color-error: #ca3636;
     --alert-color: #e4e4e4;
     --selection-color: #a6a4ff;
+    --user-color: #dfdfdf;
 }
 
 .container {

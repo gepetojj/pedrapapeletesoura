@@ -30,6 +30,10 @@
     outline: none;
 }
 
+.textField:disabled {
+    cursor: wait;
+}
+
 .input .textField {
     border-bottom-color: var(--input-border-color);
     color: var(--font-color-light);
@@ -61,6 +65,21 @@
     font-size: 80%;
     padding: 0.2rem 0.5rem 0rem 0.5rem;
     transition: 0.2s;
+}
+
+.loading {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    top: 5%;
+    left: 87%;
+    cursor: wait;
+}
+
+.loadingIcon {
+    width: 27.08px;
+    height: 27.08px;
 }
 
 .errorInput .textField {

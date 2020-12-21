@@ -21,6 +21,7 @@ export default function SignUp() {
     const [pass2Errors, setPass2Errors] = useState([false, ""]);
     const [alert, setAlert] = useState(false);
     const [alertProps, setAlertProps] = useState(["", ""]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         auth().onAuthStateChanged((user) => {
@@ -39,6 +40,7 @@ export default function SignUp() {
     };
 
     const loginWithGoogle = () => {
+        setLoading(true);
         const googleProvider = new auth.GoogleAuthProvider();
         auth().useDeviceLanguage();
         auth()
@@ -46,10 +48,12 @@ export default function SignUp() {
             .catch((err) => {
                 setAlert(true);
                 setAlertProps(["Erro ao tentar fazer login.", err.message]);
+                setLoading(false);
             });
     };
 
     const loginWithTwitter = () => {
+        setLoading(true);
         const twitterProvider = new auth.TwitterAuthProvider();
         auth().useDeviceLanguage();
         auth()
@@ -57,11 +61,13 @@ export default function SignUp() {
             .catch((err) => {
                 setAlert(true);
                 setAlertProps(["Erro ao tentar fazer login.", err.message]);
+                setLoading(false);
             });
     };
 
     const registerNewUser = async (event) => {
         event.preventDefault();
+        setLoading(true);
         setUsernErrors([false, ""]);
         setEmailErrors([false, ""]);
         setPass1Errors([false, ""]);
@@ -84,9 +90,11 @@ export default function SignUp() {
             setEmailErrors([email.error, email.message]);
             setPass1Errors([pass1.error, pass1.message]);
             setPass2Errors([pass2.error, pass2.message]);
+            setLoading(false);
         } else if (passRef.current.value !== passConfirmRef.current.value) {
             setPass1Errors([true, "As senhas devem ser iguais."]);
             setPass2Errors([true, "As senhas devem ser iguais."]);
+            setLoading(false);
         } else {
             await axios
                 .post(API("/signup"), {
@@ -102,6 +110,7 @@ export default function SignUp() {
                         "Operação concluída.",
                         response.data.message,
                     ]);
+                    setLoading(false);
                 })
                 .catch((err) => {
                     setAlert(true);
@@ -109,6 +118,7 @@ export default function SignUp() {
                         "Erro ao tentar criar sua conta.",
                         err.response.data.message,
                     ]);
+                    setLoading(false);
                 });
         }
     };
@@ -158,6 +168,7 @@ export default function SignUp() {
                                 helperText={usernErrors[1]}
                                 error={usernErrors[0]}
                                 reference={userRef}
+                                disabled={loading}
                             />
                             <Input
                                 type="email"
@@ -166,6 +177,7 @@ export default function SignUp() {
                                 helperText={emailErrors[1]}
                                 error={emailErrors[0]}
                                 reference={emailRef}
+                                disabled={loading}
                             />
                             <Input
                                 type="password"
@@ -174,6 +186,7 @@ export default function SignUp() {
                                 helperText={pass1Errors[1]}
                                 error={pass1Errors[0]}
                                 reference={passRef}
+                                disabled={loading}
                             />
                             <Input
                                 type="password"
@@ -182,8 +195,13 @@ export default function SignUp() {
                                 helperText={pass2Errors[1]}
                                 error={pass2Errors[0]}
                                 reference={passConfirmRef}
+                                disabled={loading}
                             />
-                            <Button type="submit" value="Registrar" />
+                            <Button
+                                type="submit"
+                                value="Registrar"
+                                disabled={loading}
+                            />
                         </form>
                         <div className={styles.otherOptions}>
                             <Button
@@ -191,12 +209,14 @@ export default function SignUp() {
                                 value="Entrar com Google"
                                 icon="/google.png"
                                 onClick={loginWithGoogle}
+                                disabled={loading}
                             />
                             <Button
                                 type="button"
                                 value="Entrar com Twitter"
                                 icon="/twitter.png"
                                 onClick={loginWithTwitter}
+                                disabled={loading}
                             />
                         </div>
                     </div>

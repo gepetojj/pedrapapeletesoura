@@ -22,6 +22,7 @@ export default class Button extends Component {
                     type={this.state.type}
                     className={styles.button}
                     onClick={this.state.onClick}
+                    disabled={this.props.disabled}
                 >
                     {this.state.icon !== undefined ? (
                         <div className={styles.iconArea}>
@@ -46,7 +47,11 @@ export default class Button extends Component {
         } else {
             return (
                 <Link href={this.state.link}>
-                    <button type={this.state.type} className={styles.button}>
+                    <button
+                        type={this.state.type}
+                        className={styles.button}
+                        disabled={this.props.disabled}
+                    >
                         {this.state.icon !== undefined ? (
                             <div className={styles.iconArea}>
                                 <img

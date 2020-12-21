@@ -44,6 +44,7 @@ export default class Input extends Component {
                         onFocus={this.toggleFocus}
                         onBlur={this.toggleFocus}
                         onChange={this.changeTextState}
+                        disabled={this.props.disabled}
                         required
                     />
                     <span
@@ -58,6 +59,15 @@ export default class Input extends Component {
                     {this.props.helperText !== undefined ? (
                         <span className={styles.helper}>
                             {this.props.helperText}
+                        </span>
+                    ) : null}
+                    {this.props.disabled === true ? (
+                        <span className={styles.loading}>
+                            <img
+                                className={styles.loadingIcon}
+                                src="loading.gif"
+                                alt="Ícone de carregando"
+                            />
                         </span>
                     ) : null}
                 </label>
