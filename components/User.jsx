@@ -8,7 +8,13 @@ export default class User extends Component {
 
     render() {
         return (
-            <div className={styles.controller}>
+            <div
+                className={
+                    this.props.mode === "compact"
+                        ? styles.controllerCompact
+                        : styles.controller
+                }
+            >
                 <div className={styles.avatar}>
                     <img src={this.props.avatar} alt="Avatar do usuário" />
                 </div>
