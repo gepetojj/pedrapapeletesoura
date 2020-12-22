@@ -1,18 +1,14 @@
+import nextConnect from "next-connect";
 import validator from "validator";
 import firebase from "../../assets/firebaseAdmin";
 import axios from "axios";
 import API from "../../assets/api";
 import { uuid } from "uuidv4";
 
-export default (req, res) => {
-    const { username, email, password, passwordConfirm } = req.body;
+const handler = nextConnect();
 
-    if (req.method !== "POST") {
-        return res.status(405).json({
-            error: true,
-            message: "Método inválido.",
-        });
-    }
+handler.post((req, res) => {
+    const { username, email, password, passwordConfirm } = req.body;
 
     if (
         validator.isEmpty(username, { ignore_whitespace: true }) ||
@@ -88,7 +84,9 @@ export default (req, res) => {
                                         });
                                     })
                                     .catch((err) => {
-                                        console.error(err.request._redirectable);
+                                        console.error(
+                                            err.request._redirectable
+                                        );
                                         firebase
                                             .auth()
                                             .deleteUser(userData.uid)
@@ -122,4 +120,6 @@ export default (req, res) => {
                 });
             });
     }
-};
+});
+
+export default handler;

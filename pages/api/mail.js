@@ -1,17 +1,15 @@
+import nextConnect from "next-connect";
 import firebase from "../../assets/firebaseAdmin";
 import nodemailer from "nodemailer";
 import ejs from "ejs";
 
-export default (req, res) => {
+const handler = nextConnect();
+
+handler.post((req, res) => {
     const { actionID } = req.query;
     const database = firebase.firestore().collection("emailRequests");
 
-    if (req.method !== "POST") {
-        return res.status(405).json({
-            error: true,
-            message: "Método inválido.",
-        });
-    } else if (actionID === undefined) {
+    if (actionID === undefined) {
         return res.status(400).json({
             error: true,
             message: "O ID da ação não pode ser nulo.",
@@ -137,4 +135,6 @@ export default (req, res) => {
                 message: "Erro ao tentar verificar o pedido da ação.",
             });
         });
-};
+});
+
+export default handler;

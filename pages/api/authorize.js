@@ -1,6 +1,9 @@
+import nextConnect from "next-connect";
 import firebase from "../../assets/firebaseAdmin";
 
-export default async (req, res) => {
+const handler = nextConnect();
+
+handler.get(async (req, res) => {
     const token = req.query.token;
 
     if (token === undefined) {
@@ -23,4 +26,6 @@ export default async (req, res) => {
                 message: "Houve um erro ao tentar verificar seu login.",
             });
         });
-};
+});
+
+export default handler;
